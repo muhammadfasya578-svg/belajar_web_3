@@ -7,6 +7,7 @@ function LoginForm() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,9 +25,15 @@ function LoginForm() {
             return;
 
         }
+        
+        setIsLoading(true);
 
-        alert(`username: ${username}, password: ${password}`);
+        setTimeout(function () {
+            setIsLoading(false);
+            alert(`username: ${username}, password: ${password}`);
         console.log(`username: ${username}, password: ${password}`);
+        }, 3000)
+        
     };
 
     return (
@@ -51,7 +58,8 @@ function LoginForm() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <button type="submit" className={buttonStyles.button}>
+                {isLoading && <p>loading ...</p>}
+                <button type="submit" disabled={isLoading} className={buttonStyles.button}>
                     Simpan
                 </button>
             </form>
