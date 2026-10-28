@@ -1,0 +1,13 @@
+.button {
+    margin-top: 10px;
+    background-color: blue;
+    color: white;
+    padding: 10px 50px;
+    border-radius: 8px;
+    border: none;
+}
+
+.button:hover{
+    background-color: azure;
+    color: blue;
+}
